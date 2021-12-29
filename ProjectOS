@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+
+
+int blocks[20], process[20], allocation[20], no_blocks, no_processes;
+
+void fill_data() {
+	cout << "Enter no of Blocks.\n";
+	cin >> no_blocks;
+
+	for (int i = 0; i < no_blocks; i++)
+	{
+		cout << "Enter size of block no." << i + 1 << ": ";
+		cin >> blocks[i];
+	}
+
+	cout << "Enter no of Process." << endl;
+	cin >> no_processes;
+
+		for (int i = 0; i < no_processes; i++)
+		{
+			cout << "Enter the size of process no." << i + 1 << ":";
+			cin >> process[i];
+		}
+}
+
+
+void first_fit() {
+	
+	fill_data();
+
+	for (int x = 0; x < no_processes; x++) {
+
+		if (blocks[x] >= process[x]) {
+			
+			cout << "Process of size " << process[x] << " assigned to block of size " << blocks[x] << endl;
+		}
+		
+		else if (blocks[x] < process[x]) {
+			for (int y = x+1 ; y <= no_processes; y++) {
+				
+				if (blocks[y] >= process[x]) {
+					cout << "Process of size " << process[x] << " assigned to block of size " << blocks[y] << endl;
+					x++;
+				}
+				else {
+					cout << "Process of size " << process[x] << " is not assigned" << endl;
+					x++;
+				}
+
+			}
+		}
+	}
+}
