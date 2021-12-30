@@ -29,6 +29,9 @@ void first_fit() {
 	
 	fill_data();
 
+	cout << endl;
+	cout << endl;
+
 	for (int x = 0; x < no_processes; x++) {
 
 		if (blocks[x] >= process[x]) {
@@ -76,14 +79,7 @@ void best_fit() {
 	}
 
 
-	for (int u = 0; u < no_processes; u++) {
-		cout << process[u] << " ";
-	}
 	cout << endl;
-
-	for (int u = 0; u < no_blocks; u++) {
-		cout << blocks[u] << " ";
-	}
 	cout << endl;
 
 
@@ -133,14 +129,7 @@ void worst_fit() {
 	}
 
 
-	for (int u = 0; u < no_processes; u++) {
-		cout << process[u] << " ";
-	}
 	cout << endl;
-
-	for (int u = 0; u < no_blocks; u++) {
-		cout << blocks[u] << " ";
-	}
 	cout << endl;
 
 	for (int x = 0; x < no_processes; x++) {
